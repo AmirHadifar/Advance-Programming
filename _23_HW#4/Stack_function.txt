@@ -1,0 +1,22 @@
+COPY Consturctor :
+
+template < class T> Stack< T>::Stack(const Stack< T> &s)
+{
+    Node< T> * apnode = new Node< T>;
+    if(s.top)
+        top=apnode;
+    else
+        top=NULL;
+    Node< T> *ap = s.top;
+    while (ap != NULL) {
+        apnode->info=ap->info;
+        if(ap->next == NULL)
+            apnode->next=NULL;
+        else {
+            apnode->next=new Node< T>;
+            apnode=apnode->next;
+        }
+        ap=ap->next;
+     }
+}
+
